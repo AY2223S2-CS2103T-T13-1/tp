@@ -12,49 +12,46 @@ import seedu.modtrek.model.Model;
 import seedu.modtrek.model.person.Person;
 
 /**
- * Adds a person to the address book.
+ * Adds a module to the module list.
  */
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to the module list. "
             + "Parameters: "
-            + PREFIX_NAME + "NAME "
-            + PREFIX_PHONE + "PHONE "
-            + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_ADDRESS + "ADDRESS "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + PREFIX_CODE + "CODE "
+            + PREFIX_CREDITS + "CREDITS "
+            + PREFIX_YEAR_SEMESTER + "YEAR-SEMESTER "
+            + PREFIX_GRADE + "GRADE \n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_NAME + "John Doe "
-            + PREFIX_PHONE + "98765432 "
-            + PREFIX_EMAIL + "johnd@example.com "
-            + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
-            + PREFIX_TAG + "friends "
-            + PREFIX_TAG + "owesMoney";
+            + PREFIX_CODE + "CS2103T "
+            + PREFIX_CREDITS + "4 "
+            + PREFIX_YEAR_SEMESTER + "Y2S2 "
+            + PREFIX_GRADE + "A+";
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_SUCCESS = "New module added: %1$s";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This module already exists in the module list";
 
-    private final Person toAdd;
+    private final Module toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates an AddCommand to add the specified {@code Module}
      */
-    public AddCommand(Person person) {
-        requireNonNull(person);
-        toAdd = person;
+    public AddCommand(Module module) {
+        requireNonNull(module);
+        toAdd = module;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        if (model.hasModule(toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_MODULE);
         }
 
-        model.addPerson(toAdd);
+        model.addModule(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 
