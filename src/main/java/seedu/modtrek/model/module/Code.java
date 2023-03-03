@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.modtrek.commons.util.AppUtil.checkArgument;
 
 public class Code {
-    
+
     private static final String MESSAGE_CONSTRAINTS =
             "Module code should not be blank and is alphanumeric";
 

@@ -58,14 +58,15 @@ public class Module {
 
     @Override
     public boolean equals(Object other) {
+
         if (other == this) {
             return true;
         }
-        
+
         if (!(other instanceof Module)) {
                     return false;
         }
-        
+
         Module otherModule = (Module) other;
         boolean gradeCheck = true;
 
