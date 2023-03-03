@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Grade {
 
-    private static final String MESSAGE_CONSTRAINTS =
+    public static final String MESSAGE_CONSTRAINTS =
             "Grade should be either one of [A+, A, A-, B+, B, B-, C+, C, D+, D, F, S, U]";
 
     private static final List<String> VALID_GRADES = Arrays.asList(new String[] {
@@ -31,11 +31,11 @@ public class Grade {
 
     public Grade(String value) {
         requireNonNull(value);
-        checkArgument(isValid(value), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidGrade(value), MESSAGE_CONSTRAINTS);
         this.value = value;
     }
 
-    private boolean isValid(String test) {
+    public static boolean isValidGrade(String test) {
         return VALID_GRADES.contains(test);
     }
 

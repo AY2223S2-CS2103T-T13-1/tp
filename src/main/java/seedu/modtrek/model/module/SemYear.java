@@ -5,7 +5,7 @@ import static seedu.modtrek.commons.util.AppUtil.checkArgument;
 
 public class SemYear {
 
-    private static final String MESSAGE_CONSTRAINTS =
+    public static final String MESSAGE_CONSTRAINTS =
             "SemYear should be alphanumeric in the format YxSx, where x are digits";
 
     private static final String VALIDATION_REGEX = "Y\\dS\\d";
@@ -14,11 +14,11 @@ public class SemYear {
 
     public SemYear(String semyear) {
         requireNonNull(semyear);
-        checkArgument(isValid(semyear), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidSemYear(semyear), MESSAGE_CONSTRAINTS);
         this.semyear = semyear;
     }
 
-    private boolean isValid(String test) {
+    public static boolean isValidSemYear(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 

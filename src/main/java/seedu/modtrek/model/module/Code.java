@@ -5,7 +5,7 @@ import static seedu.modtrek.commons.util.AppUtil.checkArgument;
 
 public class Code {
 
-    private static final String MESSAGE_CONSTRAINTS =
+    public static final String MESSAGE_CONSTRAINTS =
             "Module code should not be blank and is alphanumeric";
 
     private static final String VALIDATION_REGEX = "^[A-Z]{2,3}[0-9]{4}[A-Z]{0,1}$";
@@ -14,11 +14,11 @@ public class Code {
 
     public Code(String code) {
         requireNonNull(code);
-        checkArgument(isValid(code), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidCode(code), MESSAGE_CONSTRAINTS);
         this.code = code;
     }
 
-    private boolean isValid(String test) {
+    public static boolean isValidCode(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 

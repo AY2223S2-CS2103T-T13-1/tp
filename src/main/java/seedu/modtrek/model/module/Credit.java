@@ -5,7 +5,7 @@ import static seedu.modtrek.commons.util.AppUtil.checkArgument;
 
 public class Credit {
 
-    private static final String MESSAGE_CONSTRAINTS =
+    public static final String MESSAGE_CONSTRAINTS =
             "Credit should only be a number and only 1-2 digits long";
 
     private static final String VALIDATION_REGEX = "\\d{1,2}";
@@ -14,11 +14,11 @@ public class Credit {
 
     public Credit(String value) {
         requireNonNull(value);
-        checkArgument(isValid(value), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidCredit(value), MESSAGE_CONSTRAINTS);
         this.value = value;
     }
 
-    private boolean isValid(String test) {
+    public static boolean isValidCredit(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
