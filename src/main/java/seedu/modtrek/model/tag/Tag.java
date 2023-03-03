@@ -9,8 +9,16 @@ import static seedu.modtrek.commons.util.AppUtil.checkArgument;
  */
 public class Tag {
 
-    public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric";
-    public static final String VALIDATION_REGEX = "\\p{Alnum}+";
+    private enum ValidTag {
+        UNIVERSITY_LEVEL_REQUIREMENTS,
+        COMPUTER_SCIENCE_FOUNDATION,
+        COMPUTER_SCIENCE_BREADTH_AND_DEPTH,
+        IT_PROFESSIONALISM,
+        MATHEMATICS_AND_SCIENCES,
+        UNRESTRICTED_ELECTIVES
+    }
+
+    public static final String MESSAGE_CONSTRAINTS = "Tags names should be one of possible curriculum requirements";
 
     public final String tagName;
 
@@ -29,7 +37,15 @@ public class Tag {
      * Returns true if a given string is a valid tag name.
      */
     public static boolean isValidTagName(String test) {
-        return test.matches(VALIDATION_REGEX);
+        try {
+            String formattedString = test
+                    .replace(" ", "_")
+                    .toUpperCase();
+            ValidTag.valueOf(formattedString);
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
     }
 
     @Override
