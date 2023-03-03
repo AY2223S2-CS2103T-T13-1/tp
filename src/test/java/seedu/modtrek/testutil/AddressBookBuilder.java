@@ -1,6 +1,6 @@
 package seedu.modtrek.testutil;
 
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.model.person.Person;
 
 /**
@@ -10,13 +10,13 @@ import seedu.modtrek.model.person.Person;
  */
 public class AddressBookBuilder {
 
-    private AddressBook addressBook;
+    private DegreeProgression addressBook;
 
     public AddressBookBuilder() {
-        addressBook = new AddressBook();
+        addressBook = new DegreeProgression();
     }
 
-    public AddressBookBuilder(AddressBook addressBook) {
+    public AddressBookBuilder(DegreeProgression addressBook) {
         this.addressBook = addressBook;
     }
 
@@ -28,7 +28,7 @@ public class AddressBookBuilder {
         return this;
     }
 
-    public AddressBook build() {
+    public DegreeProgression build() {
         return addressBook;
     }
 }

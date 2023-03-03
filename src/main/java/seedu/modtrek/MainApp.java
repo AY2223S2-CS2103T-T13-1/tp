@@ -15,7 +15,7 @@ import seedu.modtrek.commons.util.ConfigUtil;
 import seedu.modtrek.commons.util.StringUtil;
 import seedu.modtrek.logic.Logic;
 import seedu.modtrek.logic.LogicManager;
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.model.Model;
 import seedu.modtrek.model.ModelManager;
 import seedu.modtrek.model.ReadOnlyAddressBook;
@@ -84,10 +84,10 @@ public class MainApp extends Application {
             initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
-            initialData = new AddressBook();
+            initialData = new DegreeProgression();
         } catch (IOException e) {
             logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
-            initialData = new AddressBook();
+            initialData = new DegreeProgression();
         }
 
         return new ModelManager(initialData, userPrefs);

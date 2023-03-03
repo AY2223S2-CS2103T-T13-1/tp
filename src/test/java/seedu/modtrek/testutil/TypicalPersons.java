@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.model.person.Person;
 
 /**
@@ -62,8 +62,8 @@ public class TypicalPersons {
     /**
      * Returns an {@code AddressBook} with all the typical persons.
      */
-    public static AddressBook getTypicalAddressBook() {
-        AddressBook ab = new AddressBook();
+    public static DegreeProgression getTypicalAddressBook() {
+        DegreeProgression ab = new DegreeProgression();
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);
         }

@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.model.ReadOnlyAddressBook;
 import seedu.modtrek.model.person.Person;
 import seedu.modtrek.model.person.exceptions.DuplicatePersonException;
@@ -26,7 +26,7 @@ import seedu.modtrek.testutil.PersonBuilder;
 
 public class AddressBookTest {
 
-    private final AddressBook addressBook = new AddressBook();
+    private final DegreeProgression addressBook = new DegreeProgression();
 
     @Test
     public void constructor() {
@@ -40,7 +40,7 @@ public class AddressBookTest {
 
     @Test
     public void resetData_withValidReadOnlyAddressBook_replacesData() {
-        AddressBook newData = getTypicalAddressBook();
+        DegreeProgression newData = getTypicalAddressBook();
         addressBook.resetData(newData);
         assertEquals(newData, addressBook);
     }

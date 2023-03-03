@@ -18,7 +18,7 @@ import seedu.modtrek.logic.commands.Command;
 import seedu.modtrek.logic.commands.CommandResult;
 import seedu.modtrek.logic.commands.EditCommand;
 import seedu.modtrek.logic.commands.exceptions.CommandException;
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.model.Model;
 import seedu.modtrek.model.person.NameContainsKeywordsPredicate;
 import seedu.modtrek.model.person.Person;
@@ -107,7 +107,7 @@ public class CommandTestUtil {
     public static void assertCommandFailure(Command command, Model actualModel, String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
-        AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
+        DegreeProgression expectedAddressBook = new DegreeProgression(actualModel.getAddressBook());
         List<Person> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
 
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));

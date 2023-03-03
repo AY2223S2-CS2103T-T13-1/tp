@@ -2,7 +2,7 @@ package seedu.modtrek.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.model.Model;
 
 /**
@@ -17,7 +17,7 @@ public class ClearCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.setAddressBook(new AddressBook());
+        model.setAddressBook(new DegreeProgression());
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

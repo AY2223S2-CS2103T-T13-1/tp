@@ -8,7 +8,7 @@ import seedu.modtrek.commons.exceptions.DataConversionException;
 import seedu.modtrek.model.ReadOnlyAddressBook;
 
 /**
- * Represents a storage for {@link seedu.modtrek.model.AddressBook}.
+ * Represents a storage for {@link seedu.modtrek.model.DegreeProgression}.
  */
 public interface AddressBookStorage {
 

@@ -1,22 +1,19 @@
 package seedu.modtrek.model.util;
 
-import java.util.Arrays;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-import seedu.modtrek.model.AddressBook;
-import seedu.modtrek.model.ReadOnlyAddressBook;
+import seedu.modtrek.model.ReadOnlyDegreeProgression;
 import seedu.modtrek.model.tag.Tag;
 
 /**
- * Contains utility methods for populating {@code AddressBook} with sample data.
+ * Contains utility methods for populating {@code DegreeProgression} with sample data.
  */
 public class SampleDataUtil {
-    public static Person[] getSamplePersons() {
+    public static Module[] getSampleModules() {
         return null;
     }
 
-    public static ReadOnlyAddressBook getSampleAddressBook() {
+    public static ReadOnlyDegreeProgression getSampleDegreeProgression() {
         return null;
     }
 

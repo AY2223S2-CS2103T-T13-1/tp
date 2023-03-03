@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.modtrek.commons.exceptions.IllegalValueException;
 import seedu.modtrek.commons.util.JsonUtil;
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.storage.JsonSerializableAddressBook;
 import seedu.modtrek.testutil.TypicalPersons;
 
@@ -25,8 +25,8 @@ public class JsonSerializableAddressBookTest {
     public void toModelType_typicalPersonsFile_success() throws Exception {
         JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(TYPICAL_PERSONS_FILE,
                 JsonSerializableAddressBook.class).get();
-        AddressBook addressBookFromFile = dataFromFile.toModelType();
-        AddressBook typicalPersonsAddressBook = TypicalPersons.getTypicalAddressBook();
+        DegreeProgression addressBookFromFile = dataFromFile.toModelType();
+        DegreeProgression typicalPersonsAddressBook = TypicalPersons.getTypicalAddressBook();
         assertEquals(addressBookFromFile, typicalPersonsAddressBook);
     }
 

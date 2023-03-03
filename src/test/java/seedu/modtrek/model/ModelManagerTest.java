@@ -15,7 +15,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.modtrek.commons.core.GuiSettings;
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.model.ModelManager;
 import seedu.modtrek.model.UserPrefs;
 import seedu.modtrek.model.person.NameContainsKeywordsPredicate;
@@ -29,7 +29,7 @@ public class ModelManagerTest {
     public void constructor() {
         assertEquals(new UserPrefs(), modelManager.getUserPrefs());
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
-        assertEquals(new AddressBook(), new AddressBook(modelManager.getAddressBook()));
+        assertEquals(new DegreeProgression(), new DegreeProgression(modelManager.getAddressBook()));
     }
 
     @Test
@@ -98,8 +98,8 @@ public class ModelManagerTest {
 
     @Test
     public void equals() {
-        AddressBook addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
-        AddressBook differentAddressBook = new AddressBook();
+        DegreeProgression addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
+        DegreeProgression differentAddressBook = new DegreeProgression();
         UserPrefs userPrefs = new UserPrefs();
 
         // same values -> returns true

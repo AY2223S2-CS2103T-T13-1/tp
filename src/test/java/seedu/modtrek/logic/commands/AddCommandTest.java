@@ -18,7 +18,7 @@ import seedu.modtrek.commons.core.GuiSettings;
 import seedu.modtrek.logic.commands.AddCommand;
 import seedu.modtrek.logic.commands.CommandResult;
 import seedu.modtrek.logic.commands.exceptions.CommandException;
-import seedu.modtrek.model.AddressBook;
+import seedu.modtrek.model.DegreeProgression;
 import seedu.modtrek.model.Model;
 import seedu.modtrek.model.ReadOnlyAddressBook;
 import seedu.modtrek.model.ReadOnlyUserPrefs;
@@ -189,7 +189,7 @@ public class AddCommandTest {
 
         @Override
         public ReadOnlyAddressBook getAddressBook() {
-            return new AddressBook();
+            return new DegreeProgression();
         }
     }
 
