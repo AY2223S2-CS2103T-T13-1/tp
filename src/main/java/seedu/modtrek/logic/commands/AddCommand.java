@@ -9,7 +9,7 @@ import static seedu.modtrek.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.modtrek.logic.commands.exceptions.CommandException;
 import seedu.modtrek.model.Model;
-import seedu.modtrek.model.person.Person;
+import seedu.modtrek.model.module.Module;
 
 /**
  * Adds a module to the module list.
@@ -31,7 +31,7 @@ public class AddCommand extends Command {
             + PREFIX_GRADE + "A+";
 
     public static final String MESSAGE_SUCCESS = "New module added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This module already exists in the module list";
+    public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in the module list";
 
     private final Module toAdd;
 
