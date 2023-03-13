@@ -7,10 +7,14 @@ import java.util.Set;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
+import org.testfx.framework.junit5.Start;
 
-import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import seedu.modtrek.model.module.Code;
 import seedu.modtrek.model.module.Credit;
 import seedu.modtrek.model.module.Grade;
@@ -21,8 +25,8 @@ import seedu.modtrek.model.tag.Tag;
 @ExtendWith(ApplicationExtension.class)
 public class ModuleCardTest {
 
-    @Test
-    public void testEmptyGrade() {
+    @Start
+    private void start(Stage stage) {
         Module moduleWithoutGrade = new Module(
                 new Code("CS1000"),
                 new Credit("4"),
@@ -30,21 +34,11 @@ public class ModuleCardTest {
                 Collections.EMPTY_SET,
                 new Grade("")
         );
+        ModuleCard moduleCardWithoutGrade = new ModuleCard(moduleWithoutGrade);
+        moduleCardWithoutGrade.getRoot().setId("moduleCardWithoutGrade");
 
-        ModuleCard moduleCard = new ModuleCard(moduleWithoutGrade);
-
-        Node gradeLabelNode = moduleCard.getRoot().lookup(".module-card-grade");
-        assert gradeLabelNode != null : ".module-card-grade component should not be null";
-        assert gradeLabelNode instanceof Label : ".module-card-grade component should be a Label";
-        Label gradeLabel = (Label) gradeLabelNode;
-        Assertions.assertThat(gradeLabel.getText()).hasToString("–");
-    }
-
-    @Test
-    public void testTagPresent() {
         Set<Tag> tags = new HashSet<>();
         tags.add(new Tag("COMPUTER SCIENCE FOUNDATION"));
-
         Module moduleWithTag = new Module(
                 new Code("CS1000"),
                 new Credit("4"),
@@ -52,13 +46,28 @@ public class ModuleCardTest {
                 tags,
                 new Grade("A+")
         );
+        ModuleCard moduleCardWithTag = new ModuleCard(moduleWithTag);
+        moduleCardWithTag.getRoot().setId("moduleCardWithTag");
 
-        ModuleCard moduleCard = new ModuleCard(moduleWithTag);
+        StackPane pane = new StackPane();
+        pane.getChildren().addAll(moduleCardWithoutGrade.getRoot(), moduleCardWithTag.getRoot());
+        Scene scene = new Scene(pane);
+        scene.getStylesheets().add("view/main-window.css");
+        stage.setScene(scene);
+        stage.show();
+    }
 
-        Node tagNode = moduleCard.getRoot().lookup(".module-card-tag");
-        assert tagNode != null : ".module-card-tag component should not be null";
-        assert tagNode instanceof Label : ".module-card-tag component should be a Label";
-        Label tag = (Label) tagNode;
-        Assertions.assertThat(tag.getText()).hasToString("CSF");
+    @Test
+    public void testEmptyGrade(FxRobot robot) {
+        Label gradeLabel = robot.lookup("#moduleCardWithoutGrade").lookup(".module-card-grade").queryAs(Label.class);
+        assert gradeLabel != null : "Label component for grade should not be null";
+        Assertions.assertThat(gradeLabel.getText()).hasToString("–");
+    }
+
+    @Test
+    public void testTagPresent(FxRobot robot) {
+        Label tagLabel = robot.lookup("#moduleCardWithTag").lookup(".module-card-tag").queryAs(Label.class);
+        assert tagLabel != null : "Label component for tag should not be null";
+        Assertions.assertThat(tagLabel.getText()).hasToString("CSF");
     }
 }
